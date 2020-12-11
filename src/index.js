@@ -29,7 +29,7 @@ export class Analyst extends React.Component {
   }
 
   render() {
-    const { profile, imgProp = 'analyst_img' } = this.props;
+    const { profile, prop = 'analyst_yh', imgProp = 'analyst_yh_img' } = this.props;
     const { copied } = this.state;
     if (!profile) {
       return (
@@ -50,24 +50,24 @@ export class Analyst extends React.Component {
         </div>
       );
     }
-    const recommendation = _.first((profile.recommendation || {}).data) || {};
-    const pricetarget = _.first((profile.pricetarget || {}).data) || {};
+    const info = profile[prop] || {};
+    const recommendation = _.first(info.arr) || [];
 
     const data = {
       labels: [
-        `Buy (${recommendation.ratingBuy})`,
-        `Overweight (${recommendation.ratingOverweight})`,
-        `Hold (${recommendation.ratingHold})`,
-        `Underweight (${recommendation.ratingUnderweight})`,
-        `Sell (${recommendation.ratingSell})`,
+        `Strong Buy (${recommendation.strongBuy})`,
+        `Buy (${recommendation.buy})`,
+        `Hold (${recommendation.hold})`,
+        `Sell (${recommendation.sell})`,
+        `Strong Sell (${recommendation.strongSell})`,
       ],
       datasets: [{
         data: [
-          recommendation.ratingBuy,
-          recommendation.ratingOverweight,
-          recommendation.ratingHold,
-          recommendation.ratingUnderweight,
-          recommendation.ratingSell,
+          recommendation.strongBuy,
+          recommendation.buy,
+          recommendation.hold,
+          recommendation.sell,
+          recommendation.strongSell,
         ],
         backgroundColor: [
         'darkgreen',
@@ -83,12 +83,12 @@ export class Analyst extends React.Component {
       <div>
         <div style={{ width: '100%', padding: 5, fontSize: 8 }}>
           <div style={{ color: 'darkred', fontWeight: 'bold' }}>{profile.ticker} - {profile.name}<span style={{ marginLeft: 5, color: 'green' }}>Analyst opinions</span></div>
-          {pricetarget.priceTargetHigh ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetHigh}</b>&nbsp;{pricetarget.currency}</div> : null}
-          {pricetarget.priceTargetLow ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetLow}</b>&nbsp;{pricetarget.currency}</div> : null}
-          {pricetarget.priceTargetAverage && (pricetarget.numberOfAnalysts)
+          {info.targetHighPrice ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{info.targetHighPrice}</b>&nbsp;{info.currency}</div> : null}
+          {info.targetLowPrice ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{info.targetLowPrice}</b>&nbsp;{info.currency}</div> : null}
+          {info.targetMeanPrice && (info.numberOfAnalysts)
             ? <div>
-              <b>Average:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetAverage}</b>
-                  &nbsp;based on <b style={{ color: 'green' }}>{pricetarget.numberOfAnalysts}</b> analysts as of <b>{pricetarget.updatedDate}</b>
+              <b>Average:</b> <b style={{ color: 'green' }}>{info.targetMeanPrice}</b>
+                  &nbsp;based on <b style={{ color: 'green' }}>{info.numberOfAnalystOpinions}</b> analysts as of <b>{info.last_crawled.slice(0, 10)}</b>
             </div>
             : null}
           <br />

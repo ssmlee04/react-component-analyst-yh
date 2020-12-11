@@ -76,8 +76,10 @@ function (_React$Component) {
 
       var _this$props = this.props,
           profile = _this$props.profile,
+          _this$props$prop = _this$props.prop,
+          prop = _this$props$prop === void 0 ? 'analyst_yh' : _this$props$prop,
           _this$props$imgProp = _this$props.imgProp,
-          imgProp = _this$props$imgProp === void 0 ? 'analyst_img' : _this$props$imgProp;
+          imgProp = _this$props$imgProp === void 0 ? 'analyst_yh_img' : _this$props$imgProp;
       var copied = this.state.copied;
 
       if (!profile) {
@@ -112,12 +114,12 @@ function (_React$Component) {
         }, btnText)));
       }
 
-      var recommendation = _lodash["default"].first((profile.recommendation || {}).data) || {};
-      var pricetarget = _lodash["default"].first((profile.pricetarget || {}).data) || {};
+      var info = profile[prop] || {};
+      var recommendation = _lodash["default"].first(info.arr) || [];
       var data = {
-        labels: ["Buy (".concat(recommendation.ratingBuy, ")"), "Overweight (".concat(recommendation.ratingOverweight, ")"), "Hold (".concat(recommendation.ratingHold, ")"), "Underweight (".concat(recommendation.ratingUnderweight, ")"), "Sell (".concat(recommendation.ratingSell, ")")],
+        labels: ["Strong Buy (".concat(recommendation.strongBuy, ")"), "Buy (".concat(recommendation.buy, ")"), "Hold (".concat(recommendation.hold, ")"), "Sell (".concat(recommendation.sell, ")"), "Strong Sell (".concat(recommendation.strongSell, ")")],
         datasets: [{
-          data: [recommendation.ratingBuy, recommendation.ratingOverweight, recommendation.ratingHold, recommendation.ratingUnderweight, recommendation.ratingSell],
+          data: [recommendation.strongBuy, recommendation.buy, recommendation.hold, recommendation.sell, recommendation.strongSell],
           backgroundColor: ['darkgreen', 'green', 'gold', 'orange', 'red']
         }]
       };
@@ -137,23 +139,23 @@ function (_React$Component) {
           marginLeft: 5,
           color: 'green'
         }
-      }, "Analyst opinions")), pricetarget.priceTargetHigh ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
+      }, "Analyst opinions")), info.targetHighPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, pricetarget.priceTargetHigh), "\xA0", pricetarget.currency) : null, pricetarget.priceTargetLow ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
+      }, info.targetHighPrice), "\xA0", info.currency) : null, info.targetLowPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, pricetarget.priceTargetLow), "\xA0", pricetarget.currency) : null, pricetarget.priceTargetAverage && pricetarget.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
+      }, info.targetLowPrice), "\xA0", info.currency) : null, info.targetMeanPrice && info.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, pricetarget.priceTargetAverage), "\xA0based on ", _react["default"].createElement("b", {
+      }, info.targetMeanPrice), "\xA0based on ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, pricetarget.numberOfAnalysts), " analysts as of ", _react["default"].createElement("b", null, pricetarget.updatedDate)) : null, _react["default"].createElement("br", null)), _react["default"].createElement("div", {
+      }, info.numberOfAnalystOpinions), " analysts as of ", _react["default"].createElement("b", null, info.last_crawled.slice(0, 10))) : null, _react["default"].createElement("br", null)), _react["default"].createElement("div", {
         style: {
           width: '100%'
         }
