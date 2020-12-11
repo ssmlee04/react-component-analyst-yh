@@ -51,6 +51,7 @@ export class Analyst extends React.Component {
       );
     }
     const info = profile[prop] || {};
+    console.log(info)
     const recommendation = _.first(info.arr) || [];
 
     const data = {
@@ -85,7 +86,7 @@ export class Analyst extends React.Component {
           <div style={{ color: 'darkred', fontWeight: 'bold' }}>{profile.ticker} - {profile.name}<span style={{ marginLeft: 5, color: 'green' }}>Analyst opinions</span></div>
           {info.targetHighPrice ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{info.targetHighPrice}</b>&nbsp;{info.currency}</div> : null}
           {info.targetLowPrice ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{info.targetLowPrice}</b>&nbsp;{info.currency}</div> : null}
-          {info.targetMeanPrice && (info.numberOfAnalysts)
+          {info.targetMeanPrice && info.numberOfAnalystOpinions
             ? <div>
               <b>Average:</b> <b style={{ color: 'green' }}>{info.targetMeanPrice}</b>
                   &nbsp;based on <b style={{ color: 'green' }}>{info.numberOfAnalystOpinions}</b> analysts as of <b>{info.last_crawled.slice(0, 10)}</b>

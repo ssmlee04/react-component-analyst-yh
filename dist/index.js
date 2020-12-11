@@ -115,6 +115,7 @@ function (_React$Component) {
       }
 
       var info = profile[prop] || {};
+      console.log(info);
       var recommendation = _lodash["default"].first(info.arr) || [];
       var data = {
         labels: ["Strong Buy (".concat(recommendation.strongBuy, ")"), "Buy (".concat(recommendation.buy, ")"), "Hold (".concat(recommendation.hold, ")"), "Sell (".concat(recommendation.sell, ")"), "Strong Sell (".concat(recommendation.strongSell, ")")],
@@ -147,7 +148,7 @@ function (_React$Component) {
         style: {
           color: 'green'
         }
-      }, info.targetLowPrice), "\xA0", info.currency) : null, info.targetMeanPrice && info.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
+      }, info.targetLowPrice), "\xA0", info.currency) : null, info.targetMeanPrice && info.numberOfAnalystOpinions ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
