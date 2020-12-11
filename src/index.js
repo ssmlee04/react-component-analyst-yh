@@ -51,8 +51,7 @@ export class Analyst extends React.Component {
       );
     }
     const info = profile[prop] || {};
-    console.log(info)
-    const recommendation = _.first(info.arr) || [];
+    const recommendation = _.first(info.arr || []) || {};
 
     const data = {
       labels: [

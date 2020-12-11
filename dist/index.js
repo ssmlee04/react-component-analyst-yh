@@ -115,8 +115,7 @@ function (_React$Component) {
       }
 
       var info = profile[prop] || {};
-      console.log(info);
-      var recommendation = _lodash["default"].first(info.arr) || [];
+      var recommendation = _lodash["default"].first(info.arr || []) || {};
       var data = {
         labels: ["Strong Buy (".concat(recommendation.strongBuy, ")"), "Buy (".concat(recommendation.buy, ")"), "Hold (".concat(recommendation.hold, ")"), "Sell (".concat(recommendation.sell, ")"), "Strong Sell (".concat(recommendation.strongSell, ")")],
         datasets: [{
