@@ -83,11 +83,11 @@ export class Analyst extends React.Component {
       <div>
         <div style={{ width: '100%', padding: 5, fontSize: 12 }}>
           <div style={{ color: 'darkred', fontWeight: 'bold' }}>{profile.ticker} - {profile.name}<span style={{ marginLeft: 5, color: 'green' }}>Analyst Opinions</span></div>
-          {info.targetHighPrice ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{info.targetHighPrice}&nbsp;{info.currency}</b></div> : null}
-          {info.targetLowPrice ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{info.targetLowPrice}&nbsp;{info.currency}</b></div> : null}
+          {info.targetHighPrice ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{info.targetHighPrice}&nbsp;</b><b>{info.currency}</b></div> : null}
+          {info.targetLowPrice ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{info.targetLowPrice}&nbsp;</b><b>{info.currency}</b></div> : null}
           {info.targetMeanPrice && info.numberOfAnalystOpinions
             ? <div>
-              <b>Average:</b> <b style={{ color: 'green' }}>{info.targetMeanPrice}</b>
+              <b>Average:</b> <b style={{ color: 'green' }}>{info.targetMeanPrice}</b>&nbsp;<b>{info.currency}</b>
                   &nbsp;based on <b style={{ color: 'green' }}>{info.numberOfAnalystOpinions}</b> analysts as of <b>{info.last_crawled.slice(0, 10)}</b>
             </div>
             : null}

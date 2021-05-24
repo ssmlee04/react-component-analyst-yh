@@ -143,15 +143,15 @@ function (_React$Component) {
         style: {
           color: 'green'
         }
-      }, info.targetHighPrice, "\xA0", info.currency)) : null, info.targetLowPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
+      }, info.targetHighPrice, "\xA0"), _react["default"].createElement("b", null, info.currency)) : null, info.targetLowPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, info.targetLowPrice, "\xA0", info.currency)) : null, info.targetMeanPrice && info.numberOfAnalystOpinions ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
+      }, info.targetLowPrice, "\xA0"), _react["default"].createElement("b", null, info.currency)) : null, info.targetMeanPrice && info.numberOfAnalystOpinions ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, info.targetMeanPrice), "\xA0based on ", _react["default"].createElement("b", {
+      }, info.targetMeanPrice), "\xA0", _react["default"].createElement("b", null, info.currency), "\xA0based on ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
