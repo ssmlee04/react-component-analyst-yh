@@ -40,7 +40,7 @@ var options = {
     position: 'left',
     display: true,
     labels: {
-      fontSize: 8
+      fontSize: 12
     }
   }
 };
@@ -77,21 +77,21 @@ function (_React$Component) {
       var _this$props = this.props,
           profile = _this$props.profile,
           _this$props$prop = _this$props.prop,
-          prop = _this$props$prop === void 0 ? 'analyst_yh' : _this$props$prop,
+          prop = _this$props$prop === void 0 ? 'analysts_yh' : _this$props$prop,
           _this$props$imgProp = _this$props.imgProp,
-          imgProp = _this$props$imgProp === void 0 ? 'analyst_yh_img' : _this$props$imgProp;
+          imgProp = _this$props$imgProp === void 0 ? 'analysts_yh_img' : _this$props$imgProp;
       var copied = this.state.copied;
 
       if (!profile) {
         return _react["default"].createElement("div", {
           style: {
-            fontSize: 8
+            fontSize: 12
           }
         }, "Not available at this time... ");
       }
 
       if (profile[imgProp] && profile[imgProp].url) {
-        var btnClass = copied ? 'react-components-show-url btn btn-sm btn-danger disabled font-8' : 'react-components-show-url btn btn-sm btn-warning font-8';
+        var btnClass = copied ? 'react-components-show-url btn btn-sm btn-danger disabled font-12' : 'react-components-show-url btn btn-sm btn-warning font-12';
         var btnText = copied ? 'Copied' : 'Copy Img';
         return _react["default"].createElement("div", {
           className: "react-components-show-button"
@@ -127,7 +127,7 @@ function (_React$Component) {
         style: {
           width: '100%',
           padding: 5,
-          fontSize: 8
+          fontSize: 12
         }
       }, _react["default"].createElement("div", {
         style: {
@@ -139,15 +139,15 @@ function (_React$Component) {
           marginLeft: 5,
           color: 'green'
         }
-      }, "Analyst opinions")), info.targetHighPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
+      }, "Analyst Opinions")), info.targetHighPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, info.targetHighPrice), "\xA0", info.currency) : null, info.targetLowPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
+      }, info.targetHighPrice, "\xA0", info.currency)) : null, info.targetLowPrice ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, info.targetLowPrice), "\xA0", info.currency) : null, info.targetMeanPrice && info.numberOfAnalystOpinions ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
+      }, info.targetLowPrice, "\xA0", info.currency)) : null, info.targetMeanPrice && info.numberOfAnalystOpinions ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
@@ -165,7 +165,7 @@ function (_React$Component) {
         options: options
       })) : null), _react["default"].createElement("div", {
         style: {
-          fontSize: 8,
+          fontSize: 12,
           color: 'gray',
           padding: 5
         }
