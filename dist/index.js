@@ -122,7 +122,7 @@ function (_React$Component) {
           fontSize: 12
         }
       }, _react["default"].createElement("div", {
-        className: "theme-darkred-".concat(theme, " mb-2"),
+        className: "theme-darkred-".concat(theme),
         style: {
           fontWeight: 'bold'
         }

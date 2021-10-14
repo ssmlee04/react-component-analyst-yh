@@ -77,7 +77,7 @@ export class Analyst extends React.Component {
 
     return (
       <div style={{ width: '100%', padding: 5, fontSize: 12 }}>
-        <div className={`theme-darkred-${theme} mb-2`} style={{ fontWeight: 'bold' }}>{profile.ticker} - {profile.name}&nbsp;<span className={`theme-green-${theme}`}>Analyst Opinions</span></div>
+        <div className={`theme-darkred-${theme}`} style={{ fontWeight: 'bold' }}>{profile.ticker} - {profile.name}&nbsp;<span className={`theme-green-${theme}`}>Analyst Opinions</span></div>
         {info.targetHighPrice ? <div>Target high:&nbsp;<b className={`theme-green-${theme}`}>{info.targetHighPrice}&nbsp;</b>{info.currency}</div> : null}
         {info.targetLowPrice ? <div>Target low:&nbsp;<b className={`theme-green-${theme}`}>{info.targetLowPrice}&nbsp;</b>{info.currency}</div> : null}
         {info.targetMeanPrice && info.numberOfAnalystOpinions
